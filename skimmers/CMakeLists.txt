@@ -16,6 +16,12 @@ target_link_libraries(electrons ${ROOT_LIBRARIES} Hipo4 Banks4 clashit_tree genp
 install( TARGETS electrons
 		DESTINATION ${CMAKE_SOURCE_DIR}/bin )
 
+add_executable(gen_electrons gen_electrons.cpp)
+target_link_libraries(gen_electrons ${ROOT_LIBRARIES} Hipo4 Banks4 clashit_tree genpart_tree clas12fiducial -lmysqlclient -lpthread -lz -lm -ldl -lssl -lcrypto )
+install( TARGETS gen_electrons
+		DESTINATION ${CMAKE_SOURCE_DIR}/bin )
+
+
 #message("Searching for Libraries")
 #find_library(Test clashit_tree)
 #find_library(Test clashit_tree HINTS /w/hallb-scifs17exp/clas12/users/awild/BAND_Project/Build/clashit)
