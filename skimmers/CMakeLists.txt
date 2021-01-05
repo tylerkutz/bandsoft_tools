@@ -21,6 +21,11 @@ target_link_libraries(gen_electrons ${ROOT_LIBRARIES} Hipo4 Banks4 clashit_tree 
 install( TARGETS gen_electrons
 		DESTINATION ${CMAKE_SOURCE_DIR}/bin )
 
+add_executable(background background.cpp)
+target_link_libraries(background ${ROOT_LIBRARIES} Hipo4 Banks4 clashit_tree genpart_tree clas12fiducial -lmysqlclient -lpthread -lz -lm -ldl -lssl -lcrypto )
+install( TARGETS background
+		DESTINATION ${CMAKE_SOURCE_DIR}/bin )
+
 
 #message("Searching for Libraries")
 #find_library(Test clashit_tree)
